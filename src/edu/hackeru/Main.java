@@ -20,5 +20,14 @@ public class Main {
             System.out.println(o);
         }
 
+        testVarArgs(p, p2, p, p2);
+    }
+
+    //varargs
+    public static void testVarArgs(Person... x){
+        Person[] y = x;
+        for (Person person : y) {
+
+        }
     }
 }
