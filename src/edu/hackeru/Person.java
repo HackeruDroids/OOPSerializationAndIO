@@ -37,18 +37,20 @@ public class Person {
                 '}';
     }
 
+    //Serialization (Object to binary)
     public String toCSV() {
         return String.format("%s;%s%s",
                 firstName, lastName, System.lineSeparator()
         );
     }
-
     //Factory method
+    //deserialization
+    //binary to Object
     public static Person fromCSV(@NotNull String csv ){
-        String[] p = csv.split(";");
-        if (p.length !=2)
+        String[] parts = csv.split(";");
+        if (parts.length !=2)
             throw new RuntimeException("Bad format");
-        return new Person(p[0], p[1]);
+        return new Person(parts[0], parts[1]);
     }
 
 
