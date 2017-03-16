@@ -14,7 +14,8 @@ public class FileIO {
             reader = new BufferedReader(new FileReader(file));
             String line = null;
             while ((line = reader.readLine()) != null) {
-                builder.append(line);
+                builder.append(line).
+                        append(System.lineSeparator());
             }
             return builder.toString();
         } catch (FileNotFoundException e) {
@@ -39,6 +40,10 @@ public class FileIO {
 
     public static void write(String file, String data){
        write(file, data, false);
+    }
+
+    public static void writeln(String file, String data, boolean append){
+        write(file, data + System.lineSeparator(), append);
     }
 
     public static void write(String file, String data, boolean append){
