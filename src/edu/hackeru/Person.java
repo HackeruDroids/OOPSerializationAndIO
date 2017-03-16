@@ -2,7 +2,9 @@ package edu.hackeru;
 
 import com.sun.istack.internal.NotNull;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable{
     private String firstName;
     private String lastName;
 
@@ -44,8 +46,7 @@ public class Person {
         );
     }
     //Factory method
-    //deserialization
-    //binary to Object
+    //deserialization (binary to Object)
     public static Person fromCSV(@NotNull String csv ){
         String[] parts = csv.split(";");
         if (parts.length !=2)
