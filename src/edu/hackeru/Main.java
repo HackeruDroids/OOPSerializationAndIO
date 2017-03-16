@@ -1,22 +1,24 @@
 package edu.hackeru;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
-        Person p = new Person("Moshe", "Doe");
-        String csv = p.toCSV();
-        FileIO.write("1.txt",csv, true);
+        Person p = new Person("Moshe", "Cohen");
+        Person p2 = new Person("Misha", "Doe");
+
+        List<Object> people = new ArrayList<>();
+        people.add(p);
+        people.add(p2);
+        FileIO.writeObjects("persons.bin", people);
 
 
-
-        String pFromFile = FileIO.read("1.txt");
-        Person pFromDisk = Person.fromCSV(pFromFile);
-        System.out.println(pFromDisk);
-
-//        FileIO.write("people.txt", p.getFirstName(), true);
-//        FileIO.write("people.txt", ";", true);
-//        FileIO.writeln("people.txt", p.getLastName(), true);
-
+        List<Object> objects = FileIO.readObjects("persons.bin");
+        for (Object o : objects) {
+            System.out.println(o);
+        }
 
     }
 }

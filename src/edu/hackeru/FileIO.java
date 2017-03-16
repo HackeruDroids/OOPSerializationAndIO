@@ -60,16 +60,18 @@ public class FileIO {
         }
     }
 
-    public static void writeObject(String file, Object o) {
+    public static void writeObjects(String file, List<Object> list) {
         try (ObjectOutputStream out =
                      new ObjectOutputStream(new FileOutputStream(file))) {
-            out.writeObject(o);
+            for (Object o : list) {
+                out.writeObject(o);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static Object readObject(String file) {
+    public static List<Object> readObjects(String file) {
         List<Object> data = new ArrayList<>();
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
             while (true) {

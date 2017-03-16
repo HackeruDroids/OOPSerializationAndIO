@@ -5,6 +5,7 @@ import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 
 public class Person implements Serializable{
+    private static final long serialVersionUID = 2L;
     private String firstName;
     private String lastName;
 
